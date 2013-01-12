@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:xsp="http://www.owl-ontologies.com/2005/08/07/xsp.owl#"
+    xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+    xmlns="http://www.yasl.com/yasl#"
+    xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+    xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:pos="http://www.w3.org/2003/01/geo/wgs84_pos#"
+  xml:base="http://www.yasl.com/yasl">
+  <owl:Ontology rdf:about="">
+    <owl:imports rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#"/>
+  </owl:Ontology>
+  <rdfs:Class rdf:ID="Euro">
+    <rdfs:subClassOf>
+      <rdfs:Class rdf:ID="Currency"/>
+    </rdfs:subClassOf>
+  </rdfs:Class>
+  <rdfs:Class rdf:ID="RetailChain"/>
+  <rdfs:Class rdf:ID="Retailer"/>
+  <rdfs:Class rdf:ID="Unit"/>
+  <rdfs:Class rdf:ID="Gram">
+    <rdfs:subClassOf rdf:resource="#Unit"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:ID="Food">
+    <rdfs:subClassOf>
+      <rdfs:Class rdf:ID="ProductCategory"/>
+    </rdfs:subClassOf>
+  </rdfs:Class>
+  <rdfs:Class rdf:ID="Product"/>
+  <rdfs:Class rdf:ID="USDollar">
+    <rdfs:subClassOf rdf:resource="#Currency"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:ID="Liter">
+    <rdfs:subClassOf rdf:resource="#Unit"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:ID="Beverages">
+    <rdfs:subClassOf rdf:resource="#ProductCategory"/>
+  </rdfs:Class>
+  <rdf:Property rdf:about="http://xmlns.com/foaf/0.1/based_near"/>
+  <owl:FunctionalProperty rdf:ID="hasLocation">
+    <rdfs:domain rdf:resource="#Retailer"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#Point"/>
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="belongsTo">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:range rdf:resource="#RetailChain"/>
+    <rdfs:domain rdf:resource="#Retailer"/>
+  </owl:FunctionalProperty>
+</rdf:RDF>
+
+<!-- Created with Protege (with OWL Plugin 3.5, Build 649)  http://protege.stanford.edu -->

@@ -9,29 +9,20 @@
   </parent>
 
   <properties>
-    <bundle.symbolicName>com.yasl</bundle.symbolicName>
+    <bundle.symbolicName>com.yasl.database</bundle.symbolicName>
     <bundle.namespace>com.yasl</bundle.namespace>
   </properties>
 
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.yasl</groupId>
-  <artifactId>com.yasl</artifactId>
+  <artifactId>com.yasl.dtabase</artifactId>
   <version>1.0-SNAPSHOT</version>
 
   <name>${bundle.symbolicName}</name>
 
   <packaging>bundle</packaging>
 
-  <dependencies>
-    <!--
-     | uncomment to add all imported (non-local) bundles to your compilation classpath
-    <dependency>
-      <type>pom</type>
-      <groupId>${parent.groupId}</groupId>
-      <artifactId>provision</artifactId>
-      <optional>true</optional>
-    </dependency>
-    -->
+  <dependencies>    
     <dependency>
       <groupId>org.osgi</groupId>
       <artifactId>osgi_R4_core</artifactId>
@@ -42,6 +33,27 @@
       <artifactId>osgi_R4_compendium</artifactId>
       <optional>true</optional>
     </dependency>
+     <dependency>
+            <groupId>org.openrdf.sesame</groupId>
+            <artifactId>sesame-runtime-osgi</artifactId>
+            <version>2.6.10</version>
+        </dependency>
   </dependencies>
-
+  <build>
+<plugins>
+  <plugin>
+    <groupId>org.apache.felix</groupId>
+    <artifactId>maven-bundle-plugin</artifactId>
+    <extensions>true</extensions>
+    <configuration>
+      <instructions>
+        <Export-Package>com.yasl.*</Export-Package>
+        <Private-Package>com.yasl.internal.*</Private-Package>
+        <Import-Packagei>org.openrdf.repository.RepositoryConnection</Import-Packagei>
+        <Bundle-Activator>com.yasl.internal.Activator</Bundle-Activator>
+      </instructions>
+    </configuration>
+  </plugin>
+</plugins>
+  </build>
 </project>

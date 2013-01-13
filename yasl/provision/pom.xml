@@ -16,6 +16,10 @@
     <packaging>pom</packaging> 
     <repositories>
         <repository>
+            <id>aduna-software-repo</id>
+            <url>http://repo.aduna-software.org/maven2/releases/</url>
+        </repository>
+        <repository>
             <id>com.springsource.repository.bundles.release</id>
             <name>SpringSource Enterprise Bundle Repository - SpringSource Bundle Releases</name>
             <url>http://repository.springsource.com/maven/bundles/release</url>
@@ -158,6 +162,17 @@
             <artifactId>com.springsource.org.json</artifactId>
             <version>1.0.0</version>
         </dependency>
+        <dependency>
+            <groupId>org.openrdf.sesame</groupId>
+            <artifactId>sesame-runtime-osgi</artifactId>
+            <version>2.6.10</version>
+        </dependency>
+        <dependency>
+            <groupId>org.ow2.bundles</groupId>
+            <artifactId>ow2-bundles-externals-opencsv</artifactId>
+            <version>1.0.35</version>
+        </dependency>
+            
     </dependencies>
 
 </project>
